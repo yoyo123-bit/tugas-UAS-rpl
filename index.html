@@ -1,0 +1,767 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elodie Florist | Beautiful Flowers</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            color: #493d3d;
+            background: #fffaf7;
+        }
+
+        :root {
+            --pink: #e9b8bb;
+            --dark-pink: #bd858a;
+            --cream: #fffaf7;
+            --brown: #493d3d;
+        }
+
+        /* NAVBAR */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255,250,247,0.96);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: auto;
+            padding: 18px 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 27px;
+            color: var(--dark-pink);
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--brown);
+            font-size: 14px;
+            transition: .3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--dark-pink);
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 27px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--brown);
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 600px;
+            padding: 80px 8%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            background: #f8e9e6;
+        }
+
+        .hero-text {
+            max-width: 530px;
+        }
+
+        .hero-text small {
+            color: var(--dark-pink);
+            letter-spacing: 3px;
+            font-weight: bold;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(42px, 5vw, 65px);
+            line-height: 1.2;
+            margin: 20px 0;
+        }
+
+        .hero p {
+            line-height: 1.8;
+            color: #776767;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 30px;
+            background: var(--dark-pink);
+            color: white;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: .3s;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .btn:hover {
+            background: #99666b;
+            transform: translateY(-3px);
+        }
+
+        .hero-image {
+            width: 45%;
+            height: 430px;
+            object-fit: cover;
+            border-radius: 180px 180px 15px 15px;
+            box-shadow: 15px 15px 0 #e5c1bf;
+        }
+
+        /* GENERAL SECTION */
+        section {
+            padding: 85px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-title small {
+            color: var(--dark-pink);
+            letter-spacing: 3px;
+        }
+
+        .section-title h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 38px;
+            margin-top: 10px;
+        }
+
+        /* ABOUT */
+        .about {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .about img {
+            width: 45%;
+            height: 380px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        .about-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 38px;
+            margin-bottom: 20px;
+        }
+
+        .about-content p {
+            line-height: 1.9;
+            color: #776767;
+            margin-bottom: 15px;
+        }
+
+        /* PRODUCTS */
+        .products {
+            background: #f9eeeb;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: .3s;
+            box-shadow: 0 5px 20px rgba(0,0,0,.05);
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 23px;
+            text-align: center;
+        }
+
+        .product-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 23px;
+            margin-bottom: 10px;
+        }
+
+        .product-info p {
+            font-size: 13px;
+            color: #887777;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+
+        .price {
+            color: var(--dark-pink);
+            font-weight: bold;
+            margin-bottom: 18px;
+        }
+
+        /* BENEFITS */
+        .benefit-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            text-align: center;
+        }
+
+        .benefit {
+            padding: 30px 20px;
+            background: white;
+            border-radius: 12px;
+        }
+
+        .benefit span {
+            font-size: 38px;
+        }
+
+        .benefit h3 {
+            margin: 15px 0;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .benefit p {
+            font-size: 14px;
+            color: #887777;
+            line-height: 1.7;
+        }
+
+        /* TESTIMONIAL */
+        .testimonials {
+            background: #f9eeeb;
+            text-align: center;
+        }
+
+        .testimonial-box {
+            max-width: 650px;
+            margin: auto;
+            padding: 35px;
+            background: white;
+            border-radius: 15px;
+        }
+
+        .testimonial-box p {
+            font-style: italic;
+            line-height: 1.9;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-box h4 {
+            color: var(--dark-pink);
+        }
+
+        .slider-buttons {
+            margin-top: 20px;
+        }
+
+        .slider-buttons button {
+            padding: 10px 18px;
+            border: none;
+            border-radius: 20px;
+            background: var(--dark-pink);
+            color: white;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        /* CONTACT */
+        .contact-container {
+            max-width: 650px;
+            margin: auto;
+        }
+
+        .contact-container form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contact-container input,
+        .contact-container textarea {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ead5d2;
+            background: white;
+            border-radius: 8px;
+            font-family: inherit;
+            outline: none;
+        }
+
+        .contact-container input:focus,
+        .contact-container textarea:focus {
+            border-color: var(--dark-pink);
+        }
+
+        .contact-container textarea {
+            min-height: 130px;
+            resize: vertical;
+        }
+
+        #message {
+            text-align: center;
+            color: #8b6267;
+            margin-top: 15px;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #493d3d;
+            color: white;
+            text-align: center;
+            padding: 45px 20px;
+        }
+
+        footer h2 {
+            font-family: 'Playfair Display', serif;
+            color: #e9b8bb;
+            margin-bottom: 15px;
+        }
+
+        footer p {
+            font-size: 14px;
+            line-height: 2;
+            color: #e5d8d5;
+        }
+
+        footer a {
+            color: #f1c4c5;
+            text-decoration: none;
+        }
+
+        /* RESPONSIVE */
+        @media(max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: var(--cream);
+                flex-direction: column;
+                text-align: center;
+                padding: 25px;
+                gap: 22px;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding: 60px 7%;
+            }
+
+            .hero-image {
+                width: 100%;
+                height: 350px;
+            }
+
+            .about {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .about img {
+                width: 100%;
+            }
+
+            .product-grid,
+            .benefit-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title h2 {
+                font-size: 30px;
+            }
+        }
+
+        @media(min-width: 769px) and (max-width: 1000px) {
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header>
+        <nav>
+            <div class="logo">Elodie Florist.</div>
+
+            <button class="menu-toggle" id="menuToggle"
+                aria-label="Buka menu" aria-expanded="false">
+                ☰
+            </button>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <main>
+    <section class="hero" id="home">
+        <div class="hero-text">
+            <small>WELCOME TO ELODIE FLORIST</small>
+
+            <h1>Flowers Make Every Moment Beautiful</h1>
+
+            <p>
+                Berikan kebahagiaan melalui keindahan bunga.
+                Temukan rangkaian bunga cantik untuk setiap
+                momen spesial bersama orang tersayang.
+            </p>
+
+            <a href="#products" class="btn">Explore Our Flowers</a>
+        </div>
+
+        <img class="hero-image"
+        src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=900"
+        alt="Rangkaian bunga cantik">
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about" id="about">
+        <img
+        src="https://images.unsplash.com/photo-1525310072745-f49212b5ac6d?w=900"
+        alt="Bunga dan dekorasi">
+
+        <div class="about-content">
+            <h2>About Elodie Florist</h2>
+
+            <p>
+                Elodie Florist merupakan konsep usaha
+                rangkaian bunga yang menghadirkan keindahan
+                dan kebahagiaan melalui berbagai pilihan bunga.
+            </p>
+
+            <p>
+                Kami percaya bahwa setiap bunga mempunyai
+                cerita dan mampu menyampaikan perasaan
+                tanpa harus mengucapkan banyak kata.
+            </p>
+
+            <p>
+                Jadikan setiap momen lebih berkesan
+                dengan rangkaian bunga yang indah.
+            </p>
+
+            <a href="#contact" class="btn">Contact Us</a>
+        </div>
+    </section>
+
+    <!-- PRODUCTS -->
+    <section class="products" id="products">
+        <div class="section-title">
+            <small>OUR COLLECTION</small>
+            <h2>Beautiful Flower Collection</h2>
+        </div>
+
+        <div class="product-grid">
+
+            <div class="product-card">
+                <img
+                src="https://images.unsplash.com/photo-1520763185298-1b434c919102?w=700"
+                alt="Rose Bouquet">
+
+                <div class="product-info">
+                    <h3>Rose Bouquet</h3>
+                    <p>
+                        Rangkaian bunga mawar yang elegan
+                        untuk mengungkapkan kasih sayang.
+                    </p>
+                    <div class="price">Mulai Rp150.000</div>
+                    <a href="#contact" class="btn">Order Now</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img
+                src="https://images.unsplash.com/photo-1561181286-d3fee7d55364?w=700"
+                alt="Flower Box">
+
+                <div class="product-info">
+                    <h3>Flower Box</h3>
+                    <p>
+                        Bunga pilihan dalam kotak cantik
+                        untuk hadiah spesial.
+                    </p>
+                    <div class="price">Mulai Rp200.000</div>
+                    <a href="#contact" class="btn">Order Now</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img
+                src="https://images.unsplash.com/photo-1523438885200-e635ba2c371e?w=700"
+                alt="Fresh Flower">
+
+                <div class="product-info">
+                    <h3>Fresh Flower</h3>
+                    <p>
+                        Bunga segar dengan kombinasi warna
+                        yang indah dan menarik.
+                    </p>
+                    <div class="price">Mulai Rp175.000</div>
+                    <a href="#contact" class="btn">Order Now</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- BENEFITS -->
+    <section>
+        <div class="section-title">
+            <small>WHY CHOOSE US</small>
+            <h2>Why Elodie Florist?</h2>
+        </div>
+
+        <div class="benefit-grid">
+            <div class="benefit">
+                <span>🌷</span>
+                <h3>Beautiful Flowers</h3>
+                <p>Pilihan bunga dengan tampilan yang cantik dan menarik.</p>
+            </div>
+
+            <div class="benefit">
+                <span>🎁</span>
+                <h3>Special Packaging</h3>
+                <p>Kemasan menarik untuk berbagai hadiah spesial.</p>
+            </div>
+
+            <div class="benefit">
+                <span>💗</span>
+                <h3>Best Service</h3>
+                <p>Pelayanan ramah untuk memberikan pengalaman terbaik.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="testimonials" id="testimonials">
+        <div class="section-title">
+            <small>TESTIMONIALS</small>
+            <h2>What Our Customers Say</h2>
+        </div>
+
+        <div class="testimonial-box">
+            <p id="review">
+                "Bunganya cantik sekali! Cocok untuk hadiah
+                orang tersayang. Packaging-nya juga menarik."
+            </p>
+
+            <h4 id="customer">- Amanda</h4>
+
+            <div class="slider-buttons">
+                <button onclick="changeReview(-1)">❮ Previous</button>
+                <button onclick="changeReview(1)">Next ❯</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+        <div class="section-title">
+            <small>GET IN TOUCH</small>
+            <h2>Contact & Order</h2>
+            <p>Ingin memesan bunga? Silakan isi formulir berikut.</p>
+        </div>
+
+        <div class="contact-container">
+            <form id="contactForm">
+
+                <input type="text" id="name"
+                placeholder="Nama Lengkap" required>
+
+                <input type="tel" id="phone"
+                placeholder="Nomor HP" required>
+
+                <textarea id="question"
+                placeholder="Tuliskan produk atau pertanyaan Anda..."
+                required></textarea>
+
+                <button type="submit" class="btn">
+                    Send Message
+                </button>
+
+            </form>
+
+            <p id="message"></p>
+        </div>
+    </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <h2>Elodie Florist.</h2>
+
+        <p>
+            Beautiful Flowers, Beautiful Memories.
+        </p>
+
+        <p>
+            Instagram:
+            <a href="https://www.instagram.com/elodie.florist/"
+            target="_blank" rel="noopener noreferrer">
+                @elodie.florist
+            </a>
+        </p>
+
+        <p>
+            © 2026 Elodie Florist. All Rights Reserved.
+        </p>
+    </footer>
+
+    <script>
+
+        // HAMBURGER MENU
+        const menuToggle = document.getElementById("menuToggle");
+        const navLinks = document.getElementById("navLinks");
+
+        menuToggle.addEventListener("click", function() {
+            navLinks.classList.toggle("active");
+
+            const isOpen = navLinks.classList.contains("active");
+
+            menuToggle.setAttribute("aria-expanded", isOpen);
+            menuToggle.innerHTML = isOpen ? "✕" : "☰";
+        });
+
+        // TUTUP MENU SETELAH DIKLIK
+        document.querySelectorAll(".nav-links a").forEach(link => {
+            link.addEventListener("click", function() {
+                navLinks.classList.remove("active");
+                menuToggle.setAttribute("aria-expanded", "false");
+                menuToggle.innerHTML = "☰";
+            });
+        });
+
+        // TESTIMONIAL SLIDER
+        const reviews = [
+            {
+                text: '"Bunganya cantik sekali! Cocok untuk hadiah orang tersayang. Packaging-nya juga menarik."',
+                name: "- Amanda"
+            },
+            {
+                text: '"Rangkaian bunganya sangat indah dan membuat hari spesial menjadi lebih berkesan."',
+                name: "- Sarah"
+            },
+            {
+                text: '"Pilihan bunganya menarik dan tampilannya sangat elegan. Recommended!"',
+                name: "- Putri"
+            }
+        ];
+
+        let currentReview = 0;
+
+        function changeReview(direction) {
+            currentReview += direction;
+
+            if(currentReview >= reviews.length) {
+                currentReview = 0;
+            }
+
+            if(currentReview < 0) {
+                currentReview = reviews.length - 1;
+            }
+
+            document.getElementById("review").textContent =
+                reviews[currentReview].text;
+
+            document.getElementById("customer").textContent =
+                reviews[currentReview].name;
+        }
+
+        // FORM VALIDATION
+        const contactForm = document.getElementById("contactForm");
+
+        contactForm.addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const name = document.getElementById("name").value.trim();
+            const phone = document.getElementById("phone").value.trim();
+            const question = document.getElementById("question").value.trim();
+
+            const message = document.getElementById("message");
+
+            if(name === "" || phone === "" || question === "") {
+                message.textContent = "Semua kolom wajib diisi!";
+                return;
+            }
+
+            if(!/^[0-9+\-\s]{8,20}$/.test(phone)) {
+                message.textContent = "Masukkan nomor HP yang valid!";
+                return;
+            }
+
+            message.textContent =
+                "Terima kasih " + name +
+                "! Pesan Anda berhasil divalidasi.";
+
+            contactForm.reset();
+        });
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,326 @@
+
+/* ================================
+   ADDITIONAL STYLE - ELODIE FLORIST
+================================ */
+
+/* GLOBAL ANIMATION */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+section {
+    scroll-margin-top: 80px;
+}
+
+/* NAVBAR EFFECT */
+header {
+    backdrop-filter: blur(12px);
+    transition: all 0.3s ease;
+}
+
+.logo {
+    letter-spacing: 1px;
+    transition: .3s;
+}
+
+.logo:hover {
+    letter-spacing: 2px;
+    color: #a96e75;
+}
+
+.nav-links a {
+    position: relative;
+    font-weight: 500;
+}
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -7px;
+    left: 0;
+    background: #bd858a;
+    transition: .3s;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* HERO EFFECT */
+.hero {
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background: rgba(255,255,255,.25);
+    top: -100px;
+    right: -50px;
+}
+
+.hero-text {
+    animation: fadeLeft 1s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-image {
+    animation: fadeRight 1s ease;
+    transition: .5s;
+}
+
+.hero-image:hover {
+    transform: scale(1.03);
+}
+
+.hero h1 {
+    color: #493d3d;
+    letter-spacing: -1px;
+}
+
+/* BUTTON STYLE */
+.btn {
+    box-shadow: 0 5px 15px rgba(189,133,138,.2);
+    font-weight: 600;
+}
+
+.btn:hover {
+    box-shadow: 0 8px 20px rgba(189,133,138,.35);
+}
+
+/* SECTION TITLE */
+.section-title {
+    position: relative;
+}
+
+.section-title h2 {
+    color: #493d3d;
+    position: relative;
+}
+
+.section-title small {
+    font-weight: 700;
+}
+
+/* ABOUT EFFECT */
+.about img {
+    box-shadow: 12px 12px 0 #f2d9d6;
+    transition: .5s;
+}
+
+.about img:hover {
+    transform: translateY(-5px);
+}
+
+/* PRODUCT CARD EFFECT */
+.product-card {
+    border: 1px solid #f4e6e2;
+    transition: all .4s ease;
+}
+
+.product-card img {
+    transition: transform .6s ease;
+}
+
+.product-card:hover img {
+    transform: scale(1.06);
+}
+
+.product-info h3 {
+    color: #493d3d;
+}
+
+.product-info .price {
+    font-size: 16px;
+}
+
+/* BENEFIT EFFECT */
+.benefit {
+    border: 1px solid #f4e6e2;
+    transition: .4s;
+    box-shadow: 0 5px 15px rgba(0,0,0,.03);
+}
+
+.benefit:hover {
+    transform: translateY(-8px);
+    background: #fff7f4;
+    box-shadow: 0 10px 25px rgba(189,133,138,.12);
+}
+
+.benefit span {
+    display: inline-block;
+    transition: .4s;
+}
+
+.benefit:hover span {
+    transform: scale(1.2) rotate(8deg);
+}
+
+/* TESTIMONIAL */
+.testimonial-box {
+    border: 1px solid #f0dfdc;
+    box-shadow: 0 10px 30px rgba(0,0,0,.04);
+    transition: .3s;
+}
+
+.testimonial-box:hover {
+    transform: translateY(-5px);
+}
+
+.testimonial-box p {
+    color: #776767;
+    font-size: 16px;
+}
+
+.slider-buttons button {
+    transition: .3s;
+}
+
+.slider-buttons button:hover {
+    background: #99666b;
+    transform: translateY(-2px);
+}
+
+/* CONTACT FORM */
+.contact-container {
+    background: white;
+    padding: 35px;
+    border-radius: 15px;
+    box-shadow: 0 10px 35px rgba(0,0,0,.04);
+}
+
+.contact-container input,
+.contact-container textarea {
+    transition: .3s;
+}
+
+.contact-container input:focus,
+.contact-container textarea:focus {
+    box-shadow: 0 0 0 3px rgba(189,133,138,.12);
+    border-color: #bd858a;
+}
+
+.contact-container button {
+    width: 100%;
+}
+
+/* FOOTER */
+footer {
+    background: linear-gradient(
+        135deg,
+        #493d3d,
+        #72585a
+    );
+}
+
+footer a {
+    transition: .3s;
+}
+
+footer a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+/* ANIMATION */
+@keyframes fadeLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-35px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeRight {
+    from {
+        opacity: 0;
+        transform: translateX(35px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* TABLET */
+@media (max-width: 900px) {
+    .hero {
+        padding: 60px 6%;
+    }
+
+    .hero h1 {
+        font-size: 43px;
+    }
+
+    .about-content h2 {
+        font-size: 32px;
+    }
+}
+
+/* SMARTPHONE */
+@media (max-width: 768px) {
+    .hero {
+        padding: 55px 6%;
+    }
+
+    .hero h1 {
+        font-size: 38px;
+    }
+
+    .hero-image {
+        border-radius: 130px 130px 12px 12px;
+    }
+
+    section {
+        padding: 65px 6%;
+    }
+
+    .about img {
+        height: 300px;
+    }
+
+    .product-card img {
+        height: 250px;
+    }
+
+    .contact-container {
+        padding: 22px;
+    }
+
+    .testimonial-box {
+        padding: 25px 18px;
+    }
+}
+
+/* SMALL PHONE */
+@media (max-width: 400px) {
+    .logo {
+        font-size: 23px;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .hero p {
+        font-size: 14px;
+    }
+
+    .section-title h2 {
+        font-size: 27px;
+    }
+}
