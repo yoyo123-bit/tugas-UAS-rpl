@@ -325,3 +325,38 @@ footer a:hover {
     }
 }
 
+/* ANIMASI SCROLL */
+.reveal {
+    opacity: 0;
+    transform: translateY(35px);
+    transition: all 0.8s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* TOMBOL PESAN PRODUK */
+.order-button {
+    display: inline-block;
+    background: #c7868b;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 25px;
+    text-decoration: none;
+    margin-top: 15px;
+    transition: 0.3s;
+}
+
+.order-button:hover {
+    background: #a96870;
+    transform: scale(1.05);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .reveal {
+        transform: translateY(20px);
+    }
+}

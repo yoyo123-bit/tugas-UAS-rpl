@@ -165,3 +165,50 @@ form.addEventListener("submit", function(event) {
     form.reset();
 
 });
+
+// ANIMASI SAAT HALAMAN DIGULIR
+const revealElements = document.querySelectorAll(
+    '.hero, .about, .products, .testimonials, #contact'
+);
+
+revealElements.forEach(element => {
+    element.classList.add('reveal');
+});
+
+function revealOnScroll() {
+    revealElements.forEach(element => {
+        const windowHeight = window.innerHeight;
+        const elementTop = element.getBoundingClientRect().top;
+
+        if (elementTop < windowHeight - 100) {
+            element.classList.add('active');
+        }
+    });
+}
+
+window.addEventListener('scroll', revealOnScroll);
+revealOnScroll();
+
+<script>
+const contactForm = document.getElementById('contactForm');
+
+if (contactForm) {
+    contactForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const name = contactForm.querySelector('[name="name"]');
+        const phone = contactForm.querySelector('[name="phone"]');
+        const question = contactForm.querySelector('[name="question"]');
+
+        if (!name.value.trim() ||
+            !phone.value.trim() ||
+            !question.value.trim()) {
+            alert('Mohon lengkapi semua kolom!');
+            return;
+        }
+
+        alert('Terima kasih! Formulir berhasil diperiksa.');
+        contactForm.reset();
+    });
+}
+</script>
